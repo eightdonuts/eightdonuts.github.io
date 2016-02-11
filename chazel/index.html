@@ -437,7 +437,7 @@ function readArticle(section, subSection, articleID) {
 	//article
 	$("#reading-title").html("讀取中...");
 	//init disqus
-	$("#reading-title").html("<div id=\"disqus_thread\"></div>");
+	$("#reading-content").html("<div id=\"disqus_thread\"></div>");
 	disqusReset(section, subSection, articleID);
 
 	var src;
