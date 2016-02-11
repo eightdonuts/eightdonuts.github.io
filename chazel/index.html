@@ -211,6 +211,8 @@
 	</div>
 </footer>
 
+<iframe src="https://www.csie.ntu.edu.tw/~b02902059/counter/counter.php" style="display: none;"></iframe>
+
 <script>
 for(var articleNum={novel:[21,10],shortStory:2,flashFiction:4},pageNum={novel:[],shortStory:Math.ceil(articleNum.shortStory/3),flashFiction:Math.ceil(articleNum.flashFiction/3)},novelChapterNum=articleNum.novel.length,i=0;i<novelChapterNum;i++)pageNum.novel[i]=Math.ceil(articleNum.novel[i]/3);$.ajaxSetup({cache:!1});function goBack(){$("#go-back").hide();$("#reading-area").hide();$("html,body").scrollTop();$("#summary-wrapper").show()}var nav=document.getElementById("nav"),navFixed=document.getElementById("nav-fixed");
 function handleNav(){-50>nav.getBoundingClientRect().top?(navFixed.style.transition="top 0s, opacity 0.5s",navFixed.style.top="0",navFixed.style.opacity=1):(navFixed.style.transition="top 0s 0.5s, opacity 0.5s",navFixed.style.top="-9999px",navFixed.style.opacity=0)}window.addEventListener("scroll",function(){handleNav()},!1);
