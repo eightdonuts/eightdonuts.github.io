@@ -281,7 +281,7 @@ footer {
 .footer-col:hover {
 	background: rgba(255, 255, 255, 0.1);
 }
-.footer-col > img {
+.footer-col > a img {
 	cursor: pointer;
 	max-width:50px;
 	max-height:50px;
@@ -291,8 +291,8 @@ footer {
 	top: 10px;
 	transition: all 0.2s ease-out;
 }
-.footer-col > img:hover {
-	opacity: 0.8;
+.footer-col > a img:hover {
+	opacity: 0.7;
 }
 .footer-col > div span {
 	display: block;
