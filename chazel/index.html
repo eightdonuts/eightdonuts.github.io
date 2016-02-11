@@ -448,8 +448,8 @@ function readArticle(section, subSection, articleID) {
 
 	$.get(src + articleID, function(data) {
 		var a = data.split("\n");
-		$("#reading-title").html("<div>" + a[1] + "</div>");
-		$(a[2]).insertBefore("#disqus_thread");
+		$("#reading-title").html(a[1]);
+		$("<div>" + a[2] + "</div>").insertBefore("#disqus_thread");
 	});
 	//sub-col
 	$("#prev-title").html("讀取中...");
