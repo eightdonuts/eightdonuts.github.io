@@ -448,7 +448,7 @@ function readArticle(section, subSection, articleID) {
 
 	$.get(src + articleID, function(data) {
 		var a = data.split("\n");
-		$("#reading-title").html(a[1] + "<br>");
+		$("#reading-title").html("<div>" + a[1] + "</div>");
 		$(a[2]).insertBefore("#disqus_thread");
 	});
 	//sub-col
