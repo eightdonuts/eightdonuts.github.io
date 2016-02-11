@@ -477,13 +477,20 @@ function readArticle(section, subSection, articleID) {
 }
 
 function disqusReset(section, subSection, articleID) {
+	var id;
+	if(subSection == null)
+    	id = section + "__" + articleID;
+    else
+    	id = section + "__" + subSection + "__" + articleID;
+    console.log("DISQUS id: " + id);
 	DISQUS.reset({
 	  reload: true,
 	  config: function () {  
 	    this.page.url = "http://eightdonuts.github.io/chazel/";
-	    this.page.identifier = section + "__" + subSection + "__" + articleID;
+    	this.page.identifier = id;
 	  }
 	});
+	console.log("disqus reset")
 }
 
 //disqus
