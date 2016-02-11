@@ -143,7 +143,9 @@
 	</div>
 		<section id="reading" class="no-border">
 			<h2 id="reading-title">泣城 - 豢養之章(完)</h2>
-			<div id="reading-content" class="reading-col reading-col-1"></div>
+			<div id="reading-content" class="reading-col reading-col-1">
+				
+			</div>
 			<div id="sub-col" class="reading-col reading-col-2">
 				<div class="sub-row">
 					<span>字體大小</span>
@@ -471,7 +473,33 @@ function readArticle(section, subSection, articleID) {
 		});
 		$("#next").show()
 	} else $("#next").hide();
+	//disqus
+	disqusReset(section, subSection, articleID);
+	$("#reading-content").append("<div id=\"disqus_thread\"></div>");
 }
+
+function disqusReset(section, subSection, articleID); {
+	DISQUS.reset({
+	  reload: true,
+	  config: function () {  
+	    this.page.url = "http://eightdonuts.github.io/chazel/";
+	    this.page.identifier = section + "__" + subSection + "__" + articleID;
+	  }
+	});
+}
+
+//disqus
+var disqus_config = function () {
+	this.page.url = "http://eightdonuts.github.io/chazel/";
+	this.page.identifier = "home";
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'http://chazel.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 
 handleNav();
 loadNovel(novelChapterNum);
