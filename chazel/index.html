@@ -488,7 +488,7 @@ function disqusReset(section, subSection, articleID) {
 	DISQUS.reset({
 	  reload: true,
 	  config: function () {  
-	    this.page.url = "http://eightdonuts.github.io/chazel/";
+	    this.page.url = "http://eightdonuts.github.io/chazel/#!" + id;
     	this.page.identifier = id;
 	  }
 	});
