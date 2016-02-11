@@ -484,7 +484,6 @@ function disqusReset(section, subSection, articleID) {
     	id = section + "__" + articleID;
     else
     	id = section + "__" + subSection + "__" + articleID;
-    console.log("DISQUS id: " + id);
 	DISQUS.reset({
 	  reload: true,
 	  config: function () {  
@@ -492,7 +491,6 @@ function disqusReset(section, subSection, articleID) {
     	this.page.identifier = id;
 	  }
 	});
-	console.log("disqus reset")
 }
 
 //disqus
@@ -503,7 +501,7 @@ var disqus_config = function () {
 
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = 'http://chazel.disqus.com/embed.js';
+s.src = 'http://chazeldisqus.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
