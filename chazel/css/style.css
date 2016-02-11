@@ -388,3 +388,6 @@ footer {
 	width: 320px;
 	height: 240px;
 }
+#disqus_thread {
+	margin-top: 30px;
+}
