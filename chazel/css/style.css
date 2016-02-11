@@ -1,3 +1,4 @@
+/*** Global Settings ***/
 * {
 	box-sizing: border-box;
 	font-family: "cwTeXHei", sans-serif;
@@ -39,45 +40,36 @@
 	border-bottom: 3px solid rgb(175, 50, 95);
 }
 .hide {
-	display: none;
+	display: none !important;
 }
 .no-border {
 	border: none !important;
 }
-.cover {
-	cursor: pointer;
-	opacity: 0.8;
-	transition: all 0.2s ease-out;
-	width: 310px;
-	height: 232.5px;
-}
-.cover:hover {
-	opacity: 1;
-}
-#latest-novel-cover {
-	width: 320px;
-	height: 240px;
-}
-#fixed-tool {
+
+/*** #go-back ***/
+#go-back {
 	display: none;
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
 }
-#fixed-tool button {
+#go-back button {
 	background: rgba(50, 50, 50, 0.8);
 	color: white;
 	font-size: 14px;
 	text-align: center;
 	cursor: pointer;
 	display: block;
-	transition: all 0.2s ease-out;
 	padding: 10px 12px;
 	border-radius: 5px;
+	transition: all 0.2s ease-out;
 }
-#fixed-tool button:hover {
+#go-back button:hover {
 	background: rgba(50, 50, 50, 0.9);
 }
+
+
+
 #outer-wrapper {
 	width: 1000px;
 	margin: auto;
@@ -380,4 +372,19 @@ footer {
 .sub-btn h3 {
 	font-size: 18px;
 	line-height: 1.4;
+}
+
+.cover {
+	cursor: pointer;
+	opacity: 0.8;
+	transition: all 0.2s ease-out;
+	width: 310px;
+	height: 232.5px;
+}
+.cover:hover {
+	opacity: 1;
+}
+#latest-novel-cover {
+	width: 320px;
+	height: 240px;
 }

@@ -14,9 +14,10 @@
 
 <body id="top">
 
-<div id="fixed-tool">
+<div id="go-back">
 	<button onclick="goBack()">回前頁</button>
 </div>
+
 <div id="outer-wrapper">
 	<header>
 		<div><!-- for flex layout -->
@@ -201,6 +202,13 @@
 </footer>
 
 <script>
+function goBack() {
+	$("#go-back").hide();
+	$("#reading").hide();
+	$("html,body").scrollTop();
+	$("#main-index").show();
+}
+
 /*
  * config
  */
@@ -211,14 +219,6 @@ var flashFictionArticleNum = 4;
 var novelChapterNum = novelArticleNum.length;
 var shortStoryPageNum = Math.ceil(shortStoryArticleNum / 3);
 var flashFictionPageNum = Math.ceil(flashFictionArticleNum / 3);
-
-
-function goBack() {
-	$("#fixed-tool").hide();
-	$("#reading").hide();
-	$("html,body").scrollTop();
-	$("#main-index").show();
-}
 
 /*
  * smooth scrolling
@@ -232,7 +232,7 @@ $(function() {
 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 			if (target.length) {
 				$('html,body').animate({scrollTop: target.offset().top - 80}, 800);
-				$("#fixed-tool").hide();
+				$("#go-back").hide();
         		return false;
         	}
         }
@@ -419,7 +419,7 @@ var nextFunc = function() {}
 function readArticle(section, subSection, articleID) {
 	$("#main-index").hide();
 	$("html,body").scrollTop();
-	$("#fixed-tool").show();
+	$("#go-back").show();
 	$("#reading").show();
 
 	var articleNum;
