@@ -144,7 +144,7 @@
 		<section id="reading" class="no-border">
 			<h2 id="reading-title">泣城 - 豢養之章(完)</h2>
 			<div id="reading-content" class="reading-col reading-col-1">
-				
+				<div id="disqus_thread"></div>
 			</div>
 			<div id="sub-col" class="reading-col reading-col-2">
 				<div class="sub-row">
@@ -446,7 +446,7 @@ function readArticle(section, subSection, articleID) {
 	$.get(src + articleID, function(data) {
 		var a = data.split("\n");
 		$("#reading-title").html(a[1]);
-		$("#reading-content").html(a[2]);
+		$(a[2]).insertBefore("#disqus_thread");
 	});
 	//sub-col
 	$("#prev-title").html("讀取中...");
@@ -475,7 +475,6 @@ function readArticle(section, subSection, articleID) {
 	} else $("#next").hide();
 	//disqus
 	disqusReset(section, subSection, articleID);
-	$("#reading-content").append("<div id=\"disqus_thread\"></div>");
 }
 
 function disqusReset(section, subSection, articleID) {
