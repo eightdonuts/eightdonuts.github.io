@@ -32,6 +32,7 @@
 			<li><a href="#novel">長篇小說 - 泣城</a></li>
 			<li><a href="#short-story">短篇小說</a></li>
 			<li><a href="#flash-fiction">極短篇小說</a></li>
+			<li><a href="#footer">關於我們</a></li>
 		</ul>
 	</nav>
 	<!-- end nav -->
@@ -42,125 +43,139 @@
 			<li><a href="#novel">長篇小說 - 泣城</a></li>
 			<li><a href="#short-story">短篇小說</a></li>
 			<li><a href="#flash-fiction">極短篇小說</a></li>
+			<li><a href="#footer">關於我們</a></li>
 		</ul>
 	</nav>
 	<!-- end nav-fixed -->
 
 	<div id="main-wrapper">
-	<div id="main-index">
-		<div id="novel">
-		<section id="latest-novel">
-			<h2>長篇小說 - 泣城</h2>
-			<button id="chapter-2-tab" onclick="activeTab(2)" class="btn btn-active">掠食之章</button>
-			<button id="chapter-1-tab" onclick="activeTab(1)" class="btn">豢養之章（完結）</button>
-			<div id="latest-novel-wrapper">
-				<div class="latest-novel-col latest-novel-col-1">
-					<div id="latest-novel-cover" class="cover"></div>
+		<div id="summary-wrapper">
+			<section>
+				<h2>長篇小說 - 泣城</h2>
+				<button id="tab-chapter-2" onclick="activeTab(2)" class="btn btn-active">掠食之章</button>
+				<button id="tab-chapter-1" onclick="activeTab(1)" class="btn">豢養之章（完結）</button>
+
+				<div id="latest-novel-wrapper">
+					<div class="latest-novel-col latest-novel-col-1">
+						<div id="latest-novel-cover" class="cover"></div>
+					</div>
+					<div class="latest-novel-col latest-novel-col-2">
+						<span>最新一回</span>
+						<h3 id="latest-novel-title">讀取中...</h3>
+						<p id="latest-novel-content">讀取中...</p>
+					</div>
+					<div id="select-chapter">
+						<button class="btn" onclick="novelSection.show()">顯示其他章節</button>
+					</div>
 				</div>
-				<div class="latest-novel-col latest-novel-col-2">
-					<span>最新一回</span>
-					<h3 id="latest-novel-title">讀取中...</h3>
-					<p id="latest-novel-content">讀取中...</p>
+				<!-- end latest-novel-wrapper -->
+
+				<div id="novel-wrapper">
+					<div class="grid">
+						<div id="novel-1-cover" class="cover"></div>
+						<span id="novel-1-category" class="category">讀取中...</span>
+						<h3 id="novel-1-title">讀取中...</h3>
+						<p id="novel-1-content">讀取中...</p>
+					</div>
+					<div class="grid">
+						<div id="novel-2-cover" class="cover"></div>
+						<span id="novel-2-category" class="category">讀取中...</span>
+						<h3 id="novel-2-title">讀取中...</h3>
+						<p id="novel-2-content">讀取中...</p>
+					</div>
+					<div class="grid grid-last">
+						<div id="novel-3-cover" class="cover"></div>
+						<span id="novel-3-category" class="category">讀取中...</span>
+						<h3 id="novel-3-title">讀取中...</h3>
+						<p id="novel-3-content">讀取中...</p>
+					</div>
+					<div class="clear"></div>
+					<div id="novel-paging" class="paging"></div>
 				</div>
-				<div class="select-chapter">
-					<button class="btn" onclick="showAllNovel()">顯示其他章節</button>
-				</div>
-			</div>
-			<div id="novel-wrapper">
+				<!-- end novel-wrapper -->
+			</section>
+
+			<section id="short-story">
+				<h2>短篇小說</h2>
 				<div class="grid">
-					<div id="novel-1-cover" class="cover"></div>
-					<span id="novel-1-category" class="category">讀取中...</span>
-					<h3 id="novel-1-title">讀取中...</h3>
-					<p id="novel-1-content">讀取中...</p>
+					<div id="short-story-1-cover" class="cover"></div>
+					<span id="short-story-1-category" class="category">讀取中...</span>
+					<h3 id="short-story-1-title">讀取中...</h3>
+					<p id="short-story-1-content">讀取中...</p>
 				</div>
 				<div class="grid">
-					<div id="novel-2-cover" class="cover"></div>
-					<span id="novel-2-category" class="category">讀取中...</span>
-					<h3 id="novel-2-title">讀取中...</h3>
-					<p id="novel-2-content">讀取中...</p>
+					<div id="short-story-2-cover" class="cover"></div>
+					<span id="short-story-2-category" class="category">讀取中...</span>
+					<h3 id="short-story-2-title">讀取中...</h3>
+					<p id="short-story-2-content">讀取中...</p>
 				</div>
 				<div class="grid grid-last">
-					<div id="novel-3-cover" class="cover"></div>
-					<span id="novel-3-category" class="category">讀取中...</span>
-					<h3 id="novel-3-title">讀取中...</h3>
-					<p id="novel-3-content">讀取中...</p>
+					<div id="short-story-3-cover" class="cover"></div>
+					<span id="short-story-3-category" class="category">讀取中...</span>
+					<h3 id="short-story-3-title">讀取中...</h3>
+					<p id="short-story-3-content">讀取中...</p>
 				</div>
-				<div style="clear: both;"></div>
-				<div id="novel-paging" class="paging"></div>
-			</div>
-		</section>
+				<div class="clear"></div>
+				<div id="short-story-paging" class="paging"></div>
+			</section>
+			<!-- end short-story -->
+			
+			<section id="flash-fiction" class="no-border">
+				<h2>極短篇小說</h2>
+				<div class="grid">
+					<div id="flash-fiction-1-cover" class="cover"></div>
+					<span id="flash-fiction-1-category" class="category">讀取中...</span>
+					<h3 id="flash-fiction-1-title">讀取中...</h3>
+					<p id="flash-fiction-1-content">讀取中...</p>
+				</div>
+				<div class="grid">
+					<div id="flash-fiction-2-cover" class="cover"></div>
+					<span id="flash-fiction-2-category" class="category">讀取中...</span>
+					<h3 id="flash-fiction-2-title">讀取中...</h3>
+					<p id="flash-fiction-2-content">讀取中...</p>
+				</div>
+				<div class="grid grid-last">
+					<div id="flash-fiction-3-cover" class="cover"></div>
+					<span id="flash-fiction-3-category" class="category">讀取中...</span>
+					<h3 id="flash-fiction-3-title">讀取中...</h3>
+					<p id="flash-fiction-3-content">讀取中...</p>
+				</div>
+				<div class="clear"></div>
+				<div id="flash-fiction-paging" class="paging"></div>
+			</section>
+			<!-- end flash-fiction -->
 		</div>
+		<!-- end summary-wrapper -->
 
-		<section id="short-story">
-			<h2>短篇小說</h2>
-			<div class="grid">
-				<div id="short-story-1-cover" class="cover"></div>
-				<span id="short-story-1-category" class="category">讀取中...</span>
-				<h3 id="short-story-1-title">讀取中...</h3>
-				<p id="short-story-1-content">讀取中...</p>
-			</div>
-			<div class="grid">
-				<div id="short-story-2-cover" class="cover"></div>
-				<span id="short-story-2-category" class="category">讀取中...</span>
-				<h3 id="short-story-2-title">讀取中...</h3>
-				<p id="short-story-2-content">讀取中...</p>
-			</div>
-			<div class="grid grid-last">
-				<div id="short-story-3-cover" class="cover"></div>
-				<span id="short-story-3-category" class="category">讀取中...</span>
-				<h3 id="short-story-3-title">讀取中...</h3>
-				<p id="short-story-3-content">讀取中...</p>
-			</div>
-			<div style="clear: both;"></div>
-			<div id="short-story-paging" class="paging"></div>
-		</section>
-		<!-- end section short-story -->
-		
-		<section id="flash-fiction" class="no-border">
-			<h2>極短篇小說</h2>
-			<div class="grid">
-				<div id="flash-fiction-1-cover" class="cover"></div>
-				<span id="flash-fiction-1-category" class="category">讀取中...</span>
-				<h3 id="flash-fiction-1-title">讀取中...</h3>
-				<p id="flash-fiction-1-content">讀取中...</p>
-			</div>
-			<div class="grid">
-				<div id="flash-fiction-2-cover" class="cover"></div>
-				<span id="flash-fiction-2-category" class="category">讀取中...</span>
-				<h3 id="flash-fiction-2-title">讀取中...</h3>
-				<p id="flash-fiction-2-content">讀取中...</p>
-			</div>
-			<div class="grid grid-last">
-				<div id="flash-fiction-3-cover" class="cover"></div>
-				<span id="flash-fiction-3-category" class="category">讀取中...</span>
-				<h3 id="flash-fiction-3-title">讀取中...</h3>
-				<p id="flash-fiction-3-content">讀取中...</p>
-			</div>
-			<div style="clear: both;"></div>
-			<div id="flash-fiction-paging" class="paging"></div>
-		</section>
-		<!-- end section flash-fiction -->
-	</div>
-		<section id="reading" class="no-border">
-			<h2 id="reading-title">泣城 - 豢養之章(完)</h2>
-			<div id="reading-content" class="reading-col reading-col-1">
-				<div id="disqus_thread"></div>
+		<section id="reading-area" class="no-border">
+			<h2 id="reading-area-title">讀取中...</h2>
+			<div id="reading-area-content" class="reading-col reading-col-1">
+				<!--
+					content will be inserted here
+				-->
+				<div id="disqus_thread"></div><!-- should be added first, or it will have some error -->
 			</div>
 			<div id="sub-col" class="reading-col reading-col-2">
 				<div class="sub-row">
 					<span>字體大小</span>
-					<button id="font-size-btn-1" class="btn font-size-btn" onclick="setFontSize(1)">小</button>
-					<button id="font-size-btn-2" class="btn btn-active font-size-btn" onclick="setFontSize(2)">中</button>
-					<button id="font-size-btn-3" class="btn font-size-btn" onclick="setFontSize(3)">大</button>
+					<button id="font-size-btn-1" class="btn reading-setting-btn" onclick="setFontSize(1)">小</button>
+					<button id="font-size-btn-2" class="btn btn-active reading-setting-btn" onclick="setFontSize(2)">中</button>
+					<button id="font-size-btn-3" class="btn reading-setting-btn" onclick="setFontSize(3)">大</button>
+				</div>
+				<div class="sub-row">
+					<span>行距</span>
+					<button id="line-height-btn-1" class="btn reading-setting-btn" onclick="setLineHeight(1)">小</button>
+					<button id="line-height-btn-2" class="btn btn-active reading-setting-btn" onclick="setLineHeight(2)">中</button>
+					<button id="line-height-btn-3" class="btn reading-setting-btn" onclick="setLineHeight(3)">大</button>
 				</div>
 				<div class="sub-row">
 					<div id="prev" class="btn sub-btn" onclick="prevFunc()">
 						<span>上一篇</span>
-						<h3 id="prev-title">讀取中...</h3>
+						<h3 id="prev-article-title">讀取中...</h3>
 					</div>
 					<div id="next" class="btn sub-btn" onclick="nextFunc()">
 						<span>下一篇</span>
-						<h3 id="next-title">讀取中...</h3>
+						<h3 id="next-article-title">讀取中...</h3>
 					</div>
 				</div>
 			</div>
@@ -171,7 +186,7 @@
 </div>
 <!-- end outer-wrapper -->
 
-<footer>
+<footer id="footer">
 	<div id="footer-wrapper">
 		<span>關於我們</span>
 		<div class="footer-col">
@@ -192,50 +207,45 @@
 				<span class="description">陪襯的小小綠葉。</span>
 			</div>
 		</div>
-		<div style="clear: both;"></div>
+		<div class="clear"></div>
 	</div>
 </footer>
 
 <script>
+/**
+ * global variables and some settings
+ * variables should be changed while adding/deleting articels
+ */
+var articleNum = {
+	novel: [21, 10],
+	shortStory: 2,
+	flashFiction: 4
+};
+var pageNum = {
+	novel: [],
+	shortStory: Math.ceil(articleNum.shortStory / 3),
+	flashFiction: Math.ceil(articleNum.flashFiction / 3)
+}
+var novelChapterNum = articleNum.novel.length;
+
+for(var i = 0; i < novelChapterNum; i++)
+	pageNum.novel[i] = Math.ceil(articleNum.novel[i] / 3);
+
+$.ajaxSetup({cache: false }); //not sure whether it will work
+
+
+/**
+ * go back function
+ */
 function goBack() {
 	$("#go-back").hide();
-	$("#reading").hide();
+	$("#reading-wrapper").hide();
 	$("html,body").scrollTop();
-	$("#main-index").show();
+	$("#summary-wrapper").show();
 }
 
-/*
- * config
- */
-var novelArticleNum = [21, 10];
-var shortStoryArticleNum = 2;
-var flashFictionArticleNum = 4;
 
-var novelChapterNum = novelArticleNum.length;
-var shortStoryPageNum = Math.ceil(shortStoryArticleNum / 3);
-var flashFictionPageNum = Math.ceil(flashFictionArticleNum / 3);
-
-/*
- * smooth scrolling
- */
-$(document).ready(function() {
-	$('a[href*="#"]:not([href="#"])').click(function() {
-		$("#reading").hide();
-		$("#main-index").show();
-
-		if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({scrollTop: target.offset().top - 80}, 800);
-				$("#go-back").hide();
-        		return false;
-        	}
-        }
-    });
-});
-
-/*
+/**
  * nav display
  */
 var nav = document.getElementById("nav");
@@ -253,107 +263,134 @@ function handleNav() {
 		navFixed.style.opacity = 0;
 	}
 }
+
 window.addEventListener("scroll", function(){handleNav(); }, false);
 
 
-/*
+/**
+ * smooth scrolling
+ */
+$(document).ready(function() {
+	$('a[href*="#"]:not([href="#"])').click(function() {
+		$("#reading-wrapper").hide();
+		$("#summary-wrapper").show();
+
+		if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length? target : $('[name=' + this.hash.slice(1) +']');
+			if(target.length) {
+				$("html,body").animate({scrollTop: target.offset().top - 80}, 800);
+				$("#go-back").hide();
+        		return false;
+        	}
+        }
+    });
+});
+
+
+/**
  * active tab
  */
 var activeChapter = novelChapterNum;
-function activeTab(chapter) {
-	activeChapter = chapter;
+
+function activeTab(targetChapter) {
 	//tab
 	for(var i = 1; i <= novelChapterNum; i++) {
-		var tab = document.getElementById("chapter-" + i + "-tab");
+		var tab = document.getElementById("tab-chapter-" + i);
 		tab.className = tab.className.replace(/ btn-active/g, "");
 	}
-	document.getElementById("chapter-" + chapter + "-tab").className += " btn-active";
+	document.getElementById("tab-chapter-" + targetChapter).className += " btn-active";
+
 	//content
-	loadNovel(chapter);
-	deployPagingBtn("novel", chapter);
-	loadSummary("novel", chapter, 1);
-}
-function showAllNovel() {
-	$("#latest-novel-wrapper").hide();
-	$("#novel-wrapper").show();
-}
-function showLatestNovel() {
-	$("#novel-wrapper").hide();
-	$("#latest-novel-wrapper").show();
+	loadLatestChapterArticle(targetChapter);
+	deployPagingBtn("novel", targetChapter);
+	loadSummary("novel", targetChapter, 1); //load the summary of latest article
+
+	activeChapter = targetChapter;
 }
 
-function setFontSize(level) {
-	//btn
-	for(var i = 1; i <= 3; i++) {
-		var tab = document.getElementById("font-size-btn-" + i);
-		tab.className = tab.className.replace(/ btn-active/g, "");
-	}
-	document.getElementById("font-size-btn-" + level).className += " btn-active";
-	var size;
-	if(level == 1) size = 14;
-	else if(level == 2) size = 16;
-	else if(level == 3) size = 20;
-	$("#reading-content").css("font-size",  size + "px");
-}
-
-
-/*
- * AJAX
- */
-$.ajaxSetup({cache: false }); //not sure whether it will work
-
-function loadNovel(chapter) {
+function loadLatestChapterArticle(targetChapter) {
 	$("#latest-novel-title").html("讀取中...");
 	$("#latest-novel-content").html("讀取中...");
-	$.get("http://eightdonuts.github.io/chazel/text/novel/chapter-" + chapter + "/" + novelArticleNum[chapter - 1], function(data) {
-		var a = data.split("\n");
+
+	var src = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + targetChapter + "/" + articleNum.novel[targetChapter - 1];
+	$.get(src, function(data) {
+		var a = data.split("\n"); //article array
+
 		//load cover
 		$("#latest-novel-cover").css({
 			background: "url('./img/cover/novel/" + a[0] + "') center center",
 			backgroundSize: "cover"
 		})
 		.unbind().click(function() {
-			readArticle("novel", chapter, novelArticleNum[chapter - 1]);
+			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
+
 		//load article
 		$("#latest-novel-title").html(a[1])
 		.unbind().click(function() {
-			readArticle("novel", chapter, novelArticleNum[chapter - 1]);
+			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
 		$("#latest-novel-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
 	});
 }
 
-function loadSummary(section, subSection, page) {
-	var articleNum, pageNum;
-	if(section == "novel")
-		articleNum = novelArticleNum[activeChapter - 1];
-	else if(section == "short-story")
-		articleNum = shortStoryArticleNum;
-	else if(section == "flash-fiction")
-		articleNum = flashFictionArticleNum;
 
-	pageNum = Math.ceil(articleNum / 3);
-	for(var p = 1; p <= pageNum; p++)
+/**
+ * select other chapter in latest novel section
+ */
+var novelSection = {
+	show: function() {
+		$("#latest-novel-wrapper").hide();
+		$("#novel-wrapper").show();
+	},
+	hide: function() {
+		$("#novel-wrapper").hide();
+		$("#latest-novel-wrapper").show();
+	}
+}
+
+
+/**
+ * AJAX
+ */
+function loadSummary(section, subSection, targetPage) {
+	var articleN, pageN;
+	switch(section) {
+		case "novel":
+			articleN = articleNum.novel[subSection - 1];
+			break;
+		case "short-story":
+			articleN = articleNum.shortStory;
+			break;
+		case "flash-fiction":
+			articleN = articleNum.flashFiction;
+			break;
+	}
+	pageN = Math.ceil(articleN / 3);
+
+	//button style
+	for(var p = 1; p <= pageN; p++)
 		$("#" + section + "-paging-btn-" + p).removeClass("btn-active");
-	$("#" + section + "-paging-btn-" + page).addClass("btn-active");
+	$("#" + section + "-paging-btn-" + targetPage).addClass("btn-active");
 
+	//deploy article summary
 	for(var col = 1; col <= 3; col++) {
-		var articleID = articleNum - 3 * (page - 1) - col + 1;
+		var articleID = articleN - 3 * (targetPage - 1) - col + 1;
 		if(articleID <= 0) {
 			for(var i = col; i <= 3; i++) {
-				deployArticle(section, subSection, i, 0);
+				deployArticleSummary(section, subSection, i, 0); //deploy an empty page
 			}
 			break;
 		}
 		$("#" + section + "-" + col + "-title").html("讀取中...");
 		$("#" + section + "-" + col + "-content").html("讀取中...");
-		deployArticle(section, subSection, col, articleID);
+		deployArticleSummary(section, subSection, col, articleID);
 	}
 }
 
-function deployArticle(section, subSection, col, articleID) {
-	//leave empty
+function deployArticleSummary(section, subSection, col, articleID) {
+	//deploy an empty page
 	if(articleID == 0) {
 		$("#" + section + "-" + col + "-cover").css("background-image", "none");
 		$("#" + section + "-" + col + "-category").html("");
@@ -362,12 +399,15 @@ function deployArticle(section, subSection, col, articleID) {
 		return;
 	}
 
-	var src;
-	if(section == "novel") src = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + subSection + "/";
-	else src = "http://eightdonuts.github.io/chazel/text/" + section + "/";
+	var srcHeader;
+	if(section == "novel")
+		srcHeader = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + subSection + "/";
+	else
+		srcHeader = "http://eightdonuts.github.io/chazel/text/" + section + "/";
 
-	$.get(src + articleID, function(data) {
-		var a = data.split("\n");
+	$.get(srcHeader + articleID, function(data) {
+		var a = data.split("\n"); //article array
+
 		//load cover
 		$("#" + section + "-" + col + "-cover")
 		.css({
@@ -377,13 +417,19 @@ function deployArticle(section, subSection, col, articleID) {
 		.unbind().click(function() {
 			readArticle(section, subSection, articleID);
 		});
+
 		//load article
-		if(section == "novel")
-			$("#" + section + "-" + col + "-category").html("長篇小說");
-		else if(section == "short-story")
-			$("#" + section + "-" + col + "-category").html("短篇小說");
-		else if(section == "flash-fiction")
-			$("#" + section + "-" + col + "-category").html("極短篇小說");
+		switch(section) {
+			case "novel":
+				$("#" + section + "-" + col + "-category").html("長篇小說");
+				break;
+			case "short-story":
+				$("#" + section + "-" + col + "-category").html("短篇小說");
+				break;
+			case "flash-fiction":
+				$("#" + section + "-" + col + "-category").html("極短篇小說");
+				break;
+		}
 		$("#" + section + "-" + col + "-title").html(a[1])
 		.unbind().click(function() {
 			readArticle(section, null, articleID);
@@ -392,114 +438,170 @@ function deployArticle(section, subSection, col, articleID) {
 	});
 }
 
+/**
+ * deploy paging buttons
+ * doesn't set the style of active button (e.g. the first page)
+ */
 function deployPagingBtn(section, subSection) {
-	var pageNum;
-	if(section == "novel")
-		pageNum = Math.ceil(novelArticleNum[activeChapter - 1] / 3);
-	else if(section == "short-story")
-		pageNum = shortStoryPageNum;
-	else if(section == "flash-fiction")
-		pageNum = flashFictionPageNum;
+	var pageN, output = [];
 
-	var output = ["<button id=\"" + section + "-paging-btn-1\"class=\"btn\" onclick=\"loadSummary('" + section + "', " + subSection + ", 1)\">1</button>"];
-	for(var page = 2; page <= pageNum; page++)
+	switch(section) {
+		case "novel":
+			pageN = pageNum.novel[subSection - 1];
+			break;
+		case "short-story":
+			pageN = pageNum.shortStory;
+			break;
+		case "flash-fiction":
+			pageN = pageNum.flashFiction;
+			break;
+	}
+
+	for(var page = 1; page <= pageN; page++)
 		output.push("<button id=\"" + section + "-paging-btn-" + page + "\" class=\"btn\" onclick=\"loadSummary('" + section + "', " + subSection + ", " + page + ")\">" + page + "</button>");
 	if(section == "novel")
-		output.push("<button class=\"btn\" onclick=\"showLatestNovel()\">顯示最新一回</button>")
+		output.push("<button class=\"btn\" onclick=\"novelSection.hide()\">顯示最新一回</button>")
 	$("#" + section + "-paging").html(output.join(""));
 }
 
-var prevFunc = function() {}
-var nextFunc = function() {}
+
+/**
+ * read the target article
+ */
+var prevFunc, nextFunc;
 function readArticle(section, subSection, articleID) {
-	$("#main-index").hide();
+	$("#summary-wrapper").hide();
 	$("html,body").scrollTop();
 	$("#go-back").show();
-	$("#reading").show();
+	$("#reading-area").show();
 
-	var articleNum;
+	var articleN;
+	switch(section) {
+		case "novel":
+			articleN = articleNum.novel[subSection - 1];
+			break;
+		case "short-story":
+			articleN = articleNum.shortStory;
+			break;
+		case "flash-fiction":
+			articleN = articleNum.flashFiction;
+			break;
+	}
+
+	//initialize reading area
+	$("#reading-area-title").html("讀取中...");
+	$("#reading-area-content").html("<div id=\"disqus_thread\"></div>");
+	resetDisqus(section, subSection, articleID);
+
+	//load the target article
+	var srcHeader;
 	if(section == "novel")
-		articleNum = novelArticleNum[subSection - 1];
-	else if(section == "short-story")
-		articleNum = shortStoryArticleNum;
-	else if(section == "flash-fiction")
-		articleNum = flashFictionArticleNum;
+		srcHeader = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + subSection + "/";
+	else
+		srcHeader = "http://eightdonuts.github.io/chazel/text/" + section + "/";
 
-	//article
-	$("#reading-title").html("讀取中...");
-	//init disqus
-	$("#reading-content").html("<div id=\"disqus_thread\"></div>");
-	disqusReset(section, subSection, articleID);
-
-	var src;
-	if(section == "novel") src = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + subSection + "/";
-	else src = "http://eightdonuts.github.io/chazel/text/" + section + "/";
-
-	$.get(src + articleID, function(data) {
+	$.get(srcHeader + articleID, function(data) {
 		var a = data.split("\n");
-		$("#reading-title").html(a[1]);
+		$("#reading-area-title").html(a[1]);
 		$("<div>" + a[2] + "</div>").insertBefore("#disqus_thread");
 	});
-	//sub-col
-	$("#prev-title").html("讀取中...");
-	$("#next-title").html("讀取中...");
+
+	//deploy sub-column
+	$("#prev-article-title").html("讀取中...");
+	$("#next-article-title").html("讀取中...");
+
 	if(articleID > 1) {
-		$.get(src + (articleID - 1), function(data) {
-			$("#prev-title").html(data.split("\n")[1]);
+		$.get(srcHeader + (articleID - 1), function(data) {
+			$("#prev-article-title").html(data.split("\n")[1]);
 			prevFunc = function() {
-				console.log("load prev");
 				readArticle(section, subSection, articleID - 1);
 			}
 		});
 		$("#prev").show();
-	} else $("#prev").hide();
+	}
+	else $("#prev").hide();
 
 	if(articleID < articleNum) {
 		$.get(src + (articleID + 1), function(data) {
-			$("#next-title")
-			.html(data.split("\n")[1]);
+			$("#next-article-title").html(data.split("\n")[1]);
 			nextFunc = function() {
-				console.log("load next");
 				readArticle(section, subSection, articleID + 1);
 			}
 		});
 		$("#next").show()
-	} else $("#next").hide();
+	}
+	else $("#next").hide();
 }
 
-function disqusReset(section, subSection, articleID) {
-	var id;
-	if(subSection == null)
-    	id = section + "__" + articleID;
-    else
-    	id = section + "__" + subSection + "__" + articleID;
-	DISQUS.reset({
-	  reload: true,
-	  config: function () {  
-	    this.page.url = "http://eightdonuts.github.io/chazel/#!" + id;
-    	this.page.identifier = id;
-	  }
-	});
+
+/**
+ * change font-size
+ */
+ var readingSetting = {
+ 	fontSize: [14, 16, 20],
+ 	lineHeight: [1.6, 2.0, 2.4]
+ }
+
+function setFontSize(level) {
+	//button style
+	for(var i = 1; i <= 3; i++) {
+		var tab = document.getElementById("font-size-btn-" + i);
+		tab.className = tab.className.replace(/ btn-active/g, "");
+	}
+	document.getElementById("font-size-btn-" + level).className += " btn-active";
+
+	$("#reading-area-content").css("font-size",  readingSetting.fontSize[level - 1] + "px");
 }
 
-//disqus
-var disqus_config = function () {
+function setLineHeight(level) {
+	//button style
+	for(var i = 1; i <= 3; i++) {
+		var tab = document.getElementById("line-height-btn-" + i);
+		tab.className = tab.className.replace(/ btn-active/g, "");
+	}
+	document.getElementById("line-height-btn-" + level).className += " btn-active";
+
+	$("#reading-area-content").css("line-height",  readingSetting.lineHeight[level - 1]);
+}
+
+
+
+/**
+ * disqus
+ */
+ var disqus_config = function () {
 	this.page.url = "http://eightdonuts.github.io/chazel/";
 	this.page.identifier = "home";
 };
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'http://chazeldisqus.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+(function() {
+	var d = document, s = d.createElement('script');
+	s.src = 'http://chazeldisqus.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+})();//don't edit this
 
-handleNav();
-loadNovel(novelChapterNum);
-deployPagingBtn("novel", 1);
-deployPagingBtn("novel", 2);
-loadSummary("novel", novelChapterNum, 1);
+function resetDisqus(section, subSection, articleID) {
+	var identifier;
+	if(subSection == null)
+    	identifier = section + "__" + articleID;
+    else
+    	identifier = section + "__" + subSection + "__" + articleID;
+
+	DISQUS.reset({
+	  reload: true,
+	  config: function () {  
+	    this.page.url = "http://eightdonuts.github.io/chazel/#!" + identifier;
+    	this.page.identifier = identifier;
+	  }
+	});
+}
+
+
+/**
+ * deploy initial page
+ */
+loadLatestChapterArticle(novelChapterNum);
 deployPagingBtn("short-story", null);
 loadSummary("short-story", null, 1);
 deployPagingBtn("flash-fiction", null);

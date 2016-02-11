@@ -39,6 +39,23 @@
 	border: 1px solid rgb(175, 50, 95);
 	border-bottom: 3px solid rgb(175, 50, 95);
 }
+.cover {
+	cursor: pointer;
+	opacity: 0.8;
+	transition: all 0.2s ease-out;
+	width: 310px;
+	height: 232.5px;
+}
+.cover:hover {
+	opacity: 1;
+}
+#latest-novel-cover {
+	width: 320px;
+	height: 240px;
+}
+.clear {
+	clear: both;
+}
 .hide {
 	display: none !important;
 }
@@ -47,7 +64,7 @@
 }
 
 
-/*** #go-back ***/
+/*** go-back ***/
 #go-back {
 	display: none;
 	position: fixed;
@@ -102,7 +119,7 @@ header > div span {
 }
 
 
-
+/*** nav ***/
 #nav {
 	height: 48px; /* 3px for borders */
 	border-bottom: 1px solid black;
@@ -131,11 +148,11 @@ header > div span {
 	background: rgba(255, 255, 255, 0.9);
 	position: fixed;
 	left: 0;
-	top: -0px;
+	top: -9999px;
 	width: 100%;
 	height: 56px; /* 1px for border-bottom */
 	border-bottom: 1px solid rgba(200, 200, 200, 0.9);
-	z-index: 1; /* fix cover stack */
+	z-index: 1; /* handle cover stack */
 }
 #nav-fixed > span a {
 	color: #000;
@@ -170,9 +187,15 @@ header > div span {
 #nav-fixed ul li a:hover {
 	color: rgb(180, 0, 40);
 }
+
+
+/*** main-wrapper ***/
 #main-wrapper {
 	padding: 0 10px;
 }
+
+
+/*** section ***/
 section {
 	border-bottom: 1px dashed rgba(100, 100, 100, 0.9);
 }
@@ -180,6 +203,9 @@ section h2 {
 	font: 36px "cwTeXMing", serif;
 	padding: 35px 0 25px;
 }
+
+
+/*** latest-novel ***/
 #latest-novel-wrapper {
 	font-size: 0;
 	margin: 20px 0 30px;
@@ -203,20 +229,20 @@ section h2 {
 	line-height: 1.2;
 	display: block;
 }
-.latest-novel-col-2 > h3 {
+.latest-novel-col-2 #latest-novel-title {
 	color: rgb(180, 0, 40);
-	display: inline;
 	font-size: 24px;
 	line-height: 1.4;
 	cursor: pointer;
+	display: inline; /* due to width of the link */
 }
-.latest-novel-col-2 > p {
+.latest-novel-col-2 #latest-novel-content {
 	color: rgb(60, 60, 60);
 	font-size: 16px;
 	line-height: 1.6;
 	padding: 8px 0;
 }
-.select-chapter {
+#select-chapter {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -225,6 +251,9 @@ section h2 {
 	display: none;
 	margin-top: 20px;
 }
+
+
+/*** grid style ***/
 .grid {
 	float: left;
 	width: 320px;
@@ -239,15 +268,15 @@ section h2 {
 	color: rgb(180, 0, 40);
 	font-size: 16px;
 	line-height: 1.5;
-	padding-top: 5px;
 	display: block;
+	padding-top: 5px;
 }
 .grid h3 {
 	color: rgb(180, 0, 40);
-	display: inline;
 	font-size: 24px;
 	line-height: 1.2;
 	cursor: pointer;
+	display: inline;
 }
 .grid p {
 	color: rgb(60, 60, 60);
@@ -259,66 +288,14 @@ section h2 {
 	text-align: center;
 	padding: 25px 0;
 }
-footer {
-	background: rgb(25, 25, 25);
-	width: 100%;
-	padding: 40px 0;
-}
-#footer-wrapper {
-	font-size: 0;
-	width: 800px;
-	margin: auto;
-}
-#footer-wrapper > span {
-	color: rgb(180, 180, 180);
-	font-size: 18px;
-	display: block;
-	padding: 0 0 20px;
-}
-.footer-col {
-	background: rgba(255, 255, 255, 0.05);
-	display: inline-block;
-	position: relative;
-	width: 380px;
-	height: 70px;
-	padding: 10px 0 10px 80px;
-	border-radius: 5px;
-	margin: 0 10px;
-}
-.footer-col:hover {
-	background: rgba(255, 255, 255, 0.1);
-}
-.footer-col > a img {
-	cursor: pointer;
-	max-width:50px;
-	max-height:50px;
-	border-radius: 50%;
-	position: absolute;
-	left: 10px;
-	top: 10px;
-	transition: all 0.2s ease-out;
-}
-.footer-col > a img:hover {
-	opacity: 0.7;
-}
-.footer-col > div span {
-	display: block;
-	font-size: 16px;
-	line-height: 25px;
-}
-.footer-col > div span.name {
-	color: #FFF;
-	font-weight: bold;
-}
-.footer-col > div span.description {
-	color: rgb(135, 135, 135);
-	font-size: 14px;
-}
-#reading {
+
+
+/*** reading area ***/
+#reading-area {
 	display: none;
 	font-size: 0;
 }
-#reading h2 {
+#reading-area #reading-area-title {
 	color: rgb(180, 0, 40);
 }
 .reading-col {
@@ -345,20 +322,7 @@ footer {
 .sub-row > span {
 	display: block;
 	font-size: 16px;
-}
-.font-size-btn {
-	margin: 15px 0;
-}
-.font-size-btn:nth-child(2) {
-	border-radius: 5px 0 0 5px;
-}
-.font-size-btn:nth-child(3) {
-	border-left: none;
-	border-right: none;
-	border-radius: 0;
-}
-.font-size-btn:nth-child(4) {
-	border-radius: 0 5px 5px 0;
+	margin-top: 15px;
 }
 .sub-btn {
 	display: flex;
@@ -375,21 +339,79 @@ footer {
 	font-size: 18px;
 	line-height: 1.4;
 }
-
-.cover {
-	cursor: pointer;
-	opacity: 0.8;
-	transition: all 0.2s ease-out;
-	width: 310px;
-	height: 232.5px;
+.reading-setting-btn {
+	margin: 15px 0;
 }
-.cover:hover {
-	opacity: 1;
+.reading-setting-btn:nth-child(2) {
+	border-radius: 5px 0 0 5px;
 }
-#latest-novel-cover {
-	width: 320px;
-	height: 240px;
+.reading-setting-btn:nth-child(3) {
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+}
+.reading-setting-btn:nth-child(4) {
+	border-radius: 0 5px 5px 0;
 }
 #disqus_thread {
 	margin-top: 30px;
+}
+
+
+/*** footer ***/
+footer {
+	background: rgb(25, 25, 25);
+	width: 100%;
+	padding: 40px 0;
+}
+#footer-wrapper {
+	font-size: 0;
+	width: 800px;
+	margin: auto;
+}
+#footer-wrapper > span {
+	color: rgb(180, 180, 180);
+	font-size: 18px;
+	display: block;
+	padding: 0 0 20px;
+}
+.footer-col {
+	background: linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.06));
+	display: inline-block;
+	position: relative;
+	transition: 0.3s;
+	width: 380px;
+	height: 70px;
+	padding: 10px 0 10px 80px;
+	border-radius: 5px;
+	margin: 0 10px;
+}
+.footer-col:hover {
+	background: linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.08));
+}
+.footer-col > a img {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	transition: all 0.2s ease-out;
+	width:50px;
+	height:50px;
+	border-radius: 50%;
+}
+.footer-col > a img:hover {
+	opacity: 0.7;
+}
+.footer-col > div span {
+	display: block;
+	line-height: 25px;
+	height: 25px;
+}
+.footer-col > div span.name {
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bold;
+}
+.footer-col > div span.description {
+	color: rgb(135, 135, 135);
+	font-size: 14px;
 }
