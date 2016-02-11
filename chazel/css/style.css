@@ -379,7 +379,6 @@ footer {
 	background: linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.06));
 	display: inline-block;
 	position: relative;
-	transition: 0.3s;
 	width: 380px;
 	height: 70px;
 	padding: 10px 0 10px 80px;
