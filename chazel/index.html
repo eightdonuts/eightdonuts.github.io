@@ -239,7 +239,7 @@ $.ajaxSetup({cache: false }); //not sure whether it will work
  */
 function goBack() {
 	$("#go-back").hide();
-	$("#reading-wrapper").hide();
+	$("#reading-area").hide();
 	$("html,body").scrollTop();
 	$("#summary-wrapper").show();
 }
@@ -272,7 +272,7 @@ window.addEventListener("scroll", function(){handleNav(); }, false);
  */
 $(document).ready(function() {
 	$('a[href*="#"]:not([href="#"])').click(function() {
-		$("#reading-wrapper").hide();
+		$("#reading-area").hide();
 		$("#summary-wrapper").show();
 
 		if(location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
