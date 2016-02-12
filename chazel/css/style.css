@@ -54,6 +54,7 @@
 .disqus-comment-count {
 	color: rgb(150, 150, 150) !important;
 	font-size: 14px !important;
+	display: block;
 	margin-top: 3px;
 }
 #latest-novel-cover {

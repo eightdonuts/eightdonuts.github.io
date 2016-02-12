@@ -95,8 +95,6 @@ function activeTab(targetChapter) {
 
 function loadLatestChapterArticle(targetChapter) {
 	$("#latest-novel-title").html("讀取中...");
-	$("#latest-novel-comment-count").html("讀取中...");
-	$("#latest-novel-comment-count").attr("data-disqus-identifier", "novel__" + targetChapter + "__" + articleNum.novel[targetChapter - 1]);
 	$("#latest-novel-content").html("讀取中...");
 
 	var src = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + targetChapter + "/" + articleNum.novel[targetChapter - 1];
@@ -118,13 +116,6 @@ function loadLatestChapterArticle(targetChapter) {
 			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
 		$("#latest-novel-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
-
-		//reload comment count
-		reloadDisqusCommentCount();
-
-		//prepare novel area
-		deployPagingBtn("novel", targetChapter);
-		loadSummary("novel", targetChapter, 1);
 	});
 }
 
@@ -228,9 +219,6 @@ function deployArticleSummary(section, subSection, col, articleID) {
 			readArticle(section, null, articleID);
 		});
 		$("#" + section + "-" + col + "-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
-
-		//reload comment count
-		//reloadDisqusCommentCount();
 	});
 }
 
@@ -392,17 +380,13 @@ function resetDisqus(section, subSection, articleID) {
 	});
 }
 
-//undefine disquswidgets to force a refresh also on ajax reload
-function reloadDisqusCommentCount() {
-	window.DISQUSWIDGETS = undefined;
-	$.getScript("http://chazeldisqus.disqus.com/count.js");
-	console.log("load")
-}
 
 /**
  * deploy initial page
  */
 loadLatestChapterArticle(novelChapterNum);
+deployPagingBtn("novel", novelChapterNum);
+loadSummary("novel", novelChapterNum, 1);
 deployPagingBtn("short-story", null);
 loadSummary("short-story", null, 1);
 deployPagingBtn("flash-fiction", null);
