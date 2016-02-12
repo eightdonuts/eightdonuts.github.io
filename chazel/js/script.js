@@ -71,10 +71,13 @@ $(document).ready(function() {
         }
     });
 });
+
+
 /**
  * active tab
  */
 var activeChapter = novelChapterNum;
+
 function activeTab(targetChapter) {
 	//tab
 	for(var i = 1; i <= novelChapterNum; i++) {
@@ -82,18 +85,24 @@ function activeTab(targetChapter) {
 		tab.className = tab.className.replace(/ btn-active/g, "");
 	}
 	document.getElementById("tab-chapter-" + targetChapter).className += " btn-active";
+
 	//content
 	loadLatestChapterArticle(targetChapter);
 	deployPagingBtn("novel", targetChapter);
 	loadSummary("novel", targetChapter, 1); //load the summary of latest article
 	activeChapter = targetChapter;
 }
+
 function loadLatestChapterArticle(targetChapter) {
 	$("#latest-novel-title").html("讀取中...");
+	$("#latest-novel-comment-count").html("讀取中...");
+	$("#latest-novel-comment-count").attr("data-disqus-identifier", "novel__" + targetChapter + "__" + articleNum.novel[targetChapter - 1]);
 	$("#latest-novel-content").html("讀取中...");
+
 	var src = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + targetChapter + "/" + articleNum.novel[targetChapter - 1];
 	$.get(src, function(data) {
 		var a = data.split("\n"); //article array
+
 		//load cover
 		$("#latest-novel-cover").css({
 			background: "url('./img/cover/novel/" + a[0] + "') center center",
@@ -102,14 +111,24 @@ function loadLatestChapterArticle(targetChapter) {
 		.unbind().click(function() {
 			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
+
 		//load article
 		$("#latest-novel-title").html(a[1])
 		.unbind().click(function() {
 			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
 		$("#latest-novel-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
+
+		//reload comment count
+		reloadDisqusCommentCount();
+
+		//prepare novel area
+		deployPagingBtn("novel", targetChapter);
+		loadSummary("novel", targetChapter, 1);
 	});
 }
+
+
 /**
  * select other chapter in latest novel section
  */
@@ -123,6 +142,8 @@ var novelSection = {
 		$("#latest-novel-wrapper").show();
 	}
 }
+
+
 /**
  * AJAX
  */
@@ -140,10 +161,12 @@ function loadSummary(section, subSection, targetPage) {
 			break;
 	}
 	pageN = Math.ceil(articleN / 3);
+
 	//button style
 	for(var p = 1; p <= pageN; p++)
 		$("#" + section + "-paging-btn-" + p).removeClass("btn-active");
 	$("#" + section + "-paging-btn-" + targetPage).addClass("btn-active");
+
 	//deploy article summary
 	for(var col = 1; col <= 3; col++) {
 		var articleID = articleN - 3 * (targetPage - 1) - col + 1;
@@ -158,6 +181,7 @@ function loadSummary(section, subSection, targetPage) {
 		deployArticleSummary(section, subSection, col, articleID);
 	}
 }
+
 function deployArticleSummary(section, subSection, col, articleID) {
 	//deploy an empty page
 	if(articleID == 0) {
@@ -167,13 +191,16 @@ function deployArticleSummary(section, subSection, col, articleID) {
 		$("#" + section + "-" + col + "-content").html("");
 		return;
 	}
+
 	var srcHeader;
 	if(section == "novel")
 		srcHeader = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + subSection + "/";
 	else
 		srcHeader = "http://eightdonuts.github.io/chazel/text/" + section + "/";
+
 	$.get(srcHeader + articleID, function(data) {
 		var a = data.split("\n"); //article array
+
 		//load cover
 		$("#" + section + "-" + col + "-cover")
 		.css({
@@ -183,6 +210,7 @@ function deployArticleSummary(section, subSection, col, articleID) {
 		.unbind().click(function() {
 			readArticle(section, subSection, articleID);
 		});
+
 		//load article
 		switch(section) {
 			case "novel":
@@ -200,8 +228,13 @@ function deployArticleSummary(section, subSection, col, articleID) {
 			readArticle(section, null, articleID);
 		});
 		$("#" + section + "-" + col + "-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
+
+		//reload comment count
+		//reloadDisqusCommentCount();
 	});
 }
+
+
 /**
  * deploy paging buttons
  * doesn't set the style of active button (e.g. the first page)
@@ -219,21 +252,26 @@ function deployPagingBtn(section, subSection) {
 			pageN = pageNum.flashFiction;
 			break;
 	}
+
 	for(var page = 1; page <= pageN; page++)
 		output.push("<button id=\"" + section + "-paging-btn-" + page + "\" class=\"btn\" onclick=\"loadSummary('" + section + "', " + subSection + ", " + page + ")\">" + page + "</button>");
 	if(section == "novel")
 		output.push("<button class=\"btn\" onclick=\"novelSection.hide()\">顯示最新一回</button>")
 	$("#" + section + "-paging").html(output.join(""));
 }
+
+
 /**
  * read the target article
  */
 var prevFunc, nextFunc;
+
 function readArticle(section, subSection, articleID) {
 	$("#summary-wrapper").hide();
 	$("html,body").scrollTop();
 	$("#go-back").show();
 	$("#reading-area").show();
+
 	var articleN;
 	switch(section) {
 		case "novel":
@@ -246,10 +284,12 @@ function readArticle(section, subSection, articleID) {
 			articleN = articleNum.flashFiction;
 			break;
 	}
+
 	//initialize reading area
 	$("#reading-area-title").html("讀取中...");
 	$("#reading-area-content").html("<div id=\"disqus_thread\"></div>");
 	resetDisqus(section, subSection, articleID);
+
 	//load the target article
 	var srcHeader;
 	if(section == "novel")
@@ -261,9 +301,11 @@ function readArticle(section, subSection, articleID) {
 		$("#reading-area-title").html(a[1]);
 		$("<div>" + a[2] + "</div>").insertBefore("#disqus_thread");
 	});
+
 	//deploy sub-column
 	$("#prev-article-title").html("讀取中...");
 	$("#next-article-title").html("讀取中...");
+
 	if(articleID > 1) {
 		$.get(srcHeader + (articleID - 1), function(data) {
 			$("#prev-article-title").html(data.split("\n")[1]);
@@ -274,6 +316,7 @@ function readArticle(section, subSection, articleID) {
 		$("#prev").show();
 	}
 	else $("#prev").hide();
+
 	if(articleID < articleNum) {
 		$.get(src + (articleID + 1), function(data) {
 			$("#next-article-title").html(data.split("\n")[1]);
@@ -285,13 +328,16 @@ function readArticle(section, subSection, articleID) {
 	}
 	else $("#next").hide();
 }
+
+
 /**
- * change font-size
+ * change font-size and line-height
  */
  var readingSetting = {
  	fontSize: [14, 16, 20],
  	lineHeight: [1.6, 2.0, 2.4]
  }
+
 function setFontSize(level) {
 	//button style
 	for(var i = 1; i <= 3; i++) {
@@ -299,8 +345,10 @@ function setFontSize(level) {
 		tab.className = tab.className.replace(/ btn-active/g, "");
 	}
 	document.getElementById("font-size-btn-" + level).className += " btn-active";
+
 	$("#reading-area-content").css("font-size",  readingSetting.fontSize[level - 1] + "px");
 }
+
 function setLineHeight(level) {
 	//button style
 	for(var i = 1; i <= 3; i++) {
@@ -308,8 +356,11 @@ function setLineHeight(level) {
 		tab.className = tab.className.replace(/ btn-active/g, "");
 	}
 	document.getElementById("line-height-btn-" + level).className += " btn-active";
+
 	$("#reading-area-content").css("line-height",  readingSetting.lineHeight[level - 1]);
 }
+
+
 /**
  * disqus
  */
@@ -317,26 +368,37 @@ function setLineHeight(level) {
 	this.page.url = "http://eightdonuts.github.io/chazel/";
 	this.page.identifier = "home";
 };
+
 (function() {
 	var d = document, s = d.createElement('script');
 	s.src = 'http://chazeldisqus.disqus.com/embed.js';
 	s.setAttribute('data-timestamp', +new Date());
 	(d.head || d.body).appendChild(s);
 })();//don't edit this
+
 function resetDisqus(section, subSection, articleID) {
 	var identifier;
 	if(subSection == null)
-    	identifier = section + "__" + articleID;
-    else
-    	identifier = section + "__" + subSection + "__" + articleID;
+		identifier = section + "__" + articleID;
+	else
+		identifier = section + "__" + subSection + "__" + articleID;
+
 	DISQUS.reset({
-	  reload: true,
-	  config: function () {  
-	    this.page.url = "http://eightdonuts.github.io/chazel/#!" + identifier;
-    	this.page.identifier = identifier;
-	  }
+		reload: true,
+		config: function () {  
+			this.page.url = "http://eightdonuts.github.io/chazel/#!" + identifier;
+			this.page.identifier = identifier;
+		}
 	});
 }
+
+//undefine disquswidgets to force a refresh also on ajax reload
+function reloadDisqusCommentCount() {
+	window.DISQUSWIDGETS = undefined;
+	$.getScript("http://chazeldisqus.disqus.com/count.js");
+	console.log("load")
+}
+
 /**
  * deploy initial page
  */

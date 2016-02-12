@@ -1,4 +1,4 @@
-/*
+/**
  * global settings
  */
 * {
@@ -51,6 +51,11 @@
 .cover:hover {
 	opacity: 1;
 }
+.disqus-comment-count {
+	color: rgb(150, 150, 150) !important;
+	font-size: 14px !important;
+	margin-top: 3px;
+}
 #latest-novel-cover {
 	width: 320px;
 	height: 240px;
@@ -66,7 +71,7 @@
 }
 
 
-/*
+/**
  * go-back 
  */
 #go-back {
@@ -91,7 +96,7 @@
 }
 
 
-/*
+/**
  * outer-wrapper
  */
 #outer-wrapper {
@@ -100,7 +105,7 @@
 }
 
 
-/*
+/**
  * header
  */
 header {
@@ -125,7 +130,7 @@ header > div span {
 }
 
 
-/*
+/**
  * nav
  */
 #nav {
@@ -197,7 +202,7 @@ header > div span {
 }
 
 
-/*
+/**
  * main-wrapper
  */
 #main-wrapper {
@@ -205,7 +210,7 @@ header > div span {
 }
 
 
-/*
+/**
  * section
  */
 section {
@@ -217,7 +222,7 @@ section h2 {
 }
 
 
-/*
+/**
  * latest-novel
  */
 #latest-novel-wrapper {
@@ -243,11 +248,6 @@ section h2 {
 	line-height: 1.2;
 	display: block;
 }
-/* not implemented yet
-.latest-novel-col-2 > span.disqus-comment-count {
-	color: rgb(180, 180, 180);
-}
-*/
 .latest-novel-col-2 #latest-novel-title {
 	color: rgb(180, 0, 40);
 	font-size: 24px;
@@ -272,8 +272,8 @@ section h2 {
 }
 
 
-/*
- * grid style
+/**
+ * grid
  */
 .grid {
 	float: left;
@@ -311,7 +311,7 @@ section h2 {
 }
 
 
-/*
+/**
  * reading area
  */
 #reading-area {
@@ -381,7 +381,7 @@ section h2 {
 }
 
 
-/*
+/**
  * footer
  */
 footer {
