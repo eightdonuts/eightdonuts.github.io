@@ -1,1 +1,20 @@
-body,h1,h2,h3,p,ul{margin:0}a{color:#b40028;text-decoration:none}button{border:none}button:focus{outline:none}h1,h2,h3{font-weight:400}ul{list-style:none;padding:0}
+body, h1, h2, h3, p, ul {
+	margin: 0;
+}
+a {
+	color: rgb(180, 0, 40); /* disqus will inherit this */
+	text-decoration: none;
+}
+button {
+	border: none;
+}
+button:focus {
+	outline: none;
+}
+h1, h2, h3 {
+	font-weight: normal;
+}
+ul {
+	list-style: none;
+	padding: 0;
+}
