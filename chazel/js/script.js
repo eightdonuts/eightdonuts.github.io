@@ -11,11 +11,15 @@ var pageNum = {
 	novel: [],
 	shortStory: Math.ceil(articleNum.shortStory / 3),
 	flashFiction: Math.ceil(articleNum.flashFiction / 3)
-}
+};
+
 var novelChapterNum = articleNum.novel.length;
 for(var i = 0; i < novelChapterNum; i++)
 	pageNum.novel[i] = Math.ceil(articleNum.novel[i] / 3);
+
 $.ajaxSetup({cache: false }); //not sure whether it will work
+
+
 /**
  * go back function
  */
@@ -25,11 +29,14 @@ function goBack() {
 	$("html,body").scrollTop();
 	$("#summary-wrapper").show();
 }
+
+
 /**
  * nav display
  */
 var nav = document.getElementById("nav");
 var navFixed = document.getElementById("nav-fixed");
+
 function handleNav() {
 	if(nav.getBoundingClientRect().top < -50) {
 		navFixed.style.transition = "top 0s, opacity 0.5s";
@@ -42,7 +49,10 @@ function handleNav() {
 		navFixed.style.opacity = 0;
 	}
 }
+
 window.addEventListener("scroll", function(){handleNav(); }, false);
+
+
 /**
  * smooth scrolling
  */
