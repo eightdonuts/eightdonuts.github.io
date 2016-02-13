@@ -91,10 +91,16 @@ function activeTab(targetChapter) {
 	deployPagingBtn("novel", targetChapter);
 	loadSummary("novel", targetChapter, 1); //load the summary of latest article
 	activeChapter = targetChapter;
+
+	//reload disqus comment count
+	window.DISQUSWIDGETS = undefined;
+	$.getScript("http://chazeldisqus.disqus.com/count.js");
 }
 
 function loadLatestChapterArticle(targetChapter) {
 	$("#latest-novel-title").html("讀取中...");
+	$("#latest-novel-comment-count").html("讀取中...");
+	$("#latest-novel-comment-count").attr("data-disqus-identifier", "novel__" + targetChapter + "__" + articleNum.novel[targetChapter - 1]);
 	$("#latest-novel-content").html("讀取中...");
 
 	var src = "http://eightdonuts.github.io/chazel/text/novel/chapter-" + targetChapter + "/" + articleNum.novel[targetChapter - 1];
@@ -167,20 +173,24 @@ function loadSummary(section, subSection, targetPage) {
 			}
 			break;
 		}
-		$("#" + section + "-" + col + "-title").html("讀取中...");
-		$("#" + section + "-" + col + "-content").html("讀取中...");
 		deployArticleSummary(section, subSection, col, articleID);
 	}
 }
 
 function deployArticleSummary(section, subSection, col, articleID) {
 	//deploy an empty page
+	/* still have some bug in comment count! */
 	if(articleID == 0) {
 		$("#" + section + "-" + col + "-cover").css("background-image", "none");
 		$("#" + section + "-" + col + "-category").html("");
 		$("#" + section + "-" + col + "-title").html("");
+		$("#" + section + "-" + col + "-comment-count").html("").removeAttr("data-disqus-identifier");
 		$("#" + section + "-" + col + "-content").html("");
 		return;
+	} else {
+		$("#" + section + "-" + col + "-title").html("讀取中...");
+		$("#" + section + "-" + col + "-content").html("讀取中...");
+		$("#" + section + "-" + col + "-comment-count").html("0 Comments");
 	}
 
 	var srcHeader;
@@ -220,6 +230,18 @@ function deployArticleSummary(section, subSection, col, articleID) {
 		});
 		$("#" + section + "-" + col + "-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
 	});
+
+	//disqus comment count
+	var identifier;
+	if(subSection == null)
+		identifier = section + "__" + articleID;
+	else
+		identifier = section + "__" + subSection + "__" + articleID;
+	$("#" + section + "-" + col + "-comment-count").attr("data-disqus-identifier", identifier);
+
+	//reload disqus comment count
+	window.DISQUSWIDGETS = undefined;
+	$.getScript("http://chazeldisqus.disqus.com/count.js");
 }
 
 
