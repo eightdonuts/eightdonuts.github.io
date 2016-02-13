@@ -306,7 +306,7 @@ function readArticle(section, subSection, articleID) {
 	else $("#prev").hide();
 
 	if(articleID < articleN) {
-		$.get(src + (articleID + 1), function(data) {
+		$.get(srcHeader + (articleID + 1), function(data) {
 			$("#next-article-title").html(data.split("\n")[1]);
 			nextFunc = function() {
 				readArticle(section, subSection, articleID + 1);
