@@ -179,7 +179,6 @@ function loadSummary(section, subSection, targetPage) {
 
 function deployArticleSummary(section, subSection, col, articleID) {
 	//deploy an empty page
-	/* still have some bug in comment count! */
 	if(articleID == 0) {
 		$("#" + section + "-" + col + "-cover").css("background-image", "none");
 		$("#" + section + "-" + col + "-category").html("");
@@ -190,7 +189,7 @@ function deployArticleSummary(section, subSection, col, articleID) {
 	} else {
 		$("#" + section + "-" + col + "-title").html("讀取中...");
 		$("#" + section + "-" + col + "-content").html("讀取中...");
-		$("#" + section + "-" + col + "-comment-count").html("0 Comments");
+		$("#" + section + "-" + col + "-comment-count").html("0 則評論");
 	}
 
 	var srcHeader;
