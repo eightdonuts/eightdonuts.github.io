@@ -121,9 +121,11 @@ header > div {
 	text-align: center;
 }
 header > div h1 {
-	color: #000;
 	font: bold 52px "Poiret One", cursive;
 	padding: 10px 0;
+}
+header > div h1 a {
+	color: #000;
 }
 header > div span {
 	display: block;
