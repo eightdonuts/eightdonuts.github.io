@@ -122,9 +122,9 @@ header > div {
 }
 header > div h1 {
 	color: #000;
+	display: inline;
 	font: bold 52px "Poiret One", cursive;
 	cursor: pointer;
-	padding: 10px 0;
 	transition: all 0.2s ease-out;
 }
 header > div h1:hover {
@@ -133,6 +133,7 @@ header > div h1:hover {
 header > div span {
 	display: block;
 	font-size: 16px;
+	padding: 10px 0;
 }
 
 
