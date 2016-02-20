@@ -70,8 +70,7 @@
 .new::after {
 	animation: blink 1s steps(20, start) infinite;
 	color: rgb(250, 20, 120);
-	font-size: 16px;
-	font-weight: bold;
+	font: 16px Arial, Verdana;
 	content: "NEW";
 	margin-left: 5px;
 	vertical-align: middle;

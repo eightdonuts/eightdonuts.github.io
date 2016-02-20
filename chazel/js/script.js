@@ -17,6 +17,8 @@ var novelChapterNum = articleNum.novel.length;
 for(var i = 0; i < novelChapterNum; i++)
 	pageNum.novel[i] = Math.ceil(articleNum.novel[i] / 3);
 
+var newDateThresh = 7;
+
 $.ajaxSetup({cache: false }); //not sure whether it will work
 
 
@@ -98,7 +100,7 @@ function activeTab(targetChapter) {
 }
 
 function loadLatestChapterArticle(targetChapter) {
-	$("#latest-novel-title").html("讀取中...");
+	$("#latest-novel-title").html("讀取中...").removeClass("new");
 	$("#latest-novel-comment-count").html("讀取中...");
 	$("#latest-novel-comment-count").attr("data-disqus-identifier", "novel__" + targetChapter + "__" + articleNum.novel[targetChapter - 1]);
 	$("#latest-novel-content").html("讀取中...");
@@ -121,6 +123,8 @@ function loadLatestChapterArticle(targetChapter) {
 		.unbind().click(function() {
 			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
+		if((Date.now() - Date.parse(a[1])) / 86400000 <= newDateThresh)
+			$("#latest-novel-title").addClass("new");
 		$("#latest-novel-content").html(a[3].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
 	});
 }
@@ -182,12 +186,12 @@ function deployArticleSummary(section, subSection, col, articleID) {
 	if(articleID == 0) {
 		$("#" + section + "-" + col + "-cover").css("background-image", "none");
 		$("#" + section + "-" + col + "-category").html("");
-		$("#" + section + "-" + col + "-title").html("");
+		$("#" + section + "-" + col + "-title").html("").removeClass("new");
 		$("#" + section + "-" + col + "-comment-count").html("").removeAttr("data-disqus-identifier");
 		$("#" + section + "-" + col + "-content").html("");
 		return;
 	} else {
-		$("#" + section + "-" + col + "-title").html("讀取中...");
+		$("#" + section + "-" + col + "-title").html("讀取中...").removeClass("new");
 		$("#" + section + "-" + col + "-content").html("讀取中...");
 		$("#" + section + "-" + col + "-comment-count").html("0 則評論");
 	}
@@ -227,6 +231,8 @@ function deployArticleSummary(section, subSection, col, articleID) {
 		.unbind().click(function() {
 			readArticle(section, null, articleID);
 		});
+		if((Date.now() - Date.parse(a[1])) / 86400000 <= newDateThresh)
+			$("#" + section + "-" + col + "-title").addClass("new");
 		$("#" + section + "-" + col + "-content").html(a[3].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
 	});
 
@@ -295,7 +301,7 @@ function readArticle(section, subSection, articleID) {
 	}
 
 	//initialize reading area
-	$("#reading-area-title").html("讀取中...");
+	$("#reading-area-title").html("讀取中...").removeClass("new");
 	$("#reading-area-content").html("<div id=\"disqus_thread\"></div>");
 	resetDisqus(section, subSection, articleID);
 
@@ -308,6 +314,8 @@ function readArticle(section, subSection, articleID) {
 	$.get(srcHeader + articleID, function(data) {
 		var a = data.split("\n");
 		$("#reading-area-title").html(a[2]);
+		if((Date.now() - Date.parse(a[1])) / 86400000 <= newDateThresh)
+			$("#reading-area-title").addClass("new");
 		$("<div>" + a[3] + "</div>").insertBefore("#disqus_thread");
 	});
 
