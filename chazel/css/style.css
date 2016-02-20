@@ -67,6 +67,20 @@
 .hide {
 	display: none !important;
 }
+.new::after {
+	animation: blink 1s steps(20, start) infinite;
+	color: rgb(250, 20, 120);
+	font-size: 16px;
+	font-weight: bold;
+	content: "NEW";
+	margin-left: 5px;
+	vertical-align: middle;
+}
+@keyframes blink {
+	to {
+		visibility: hidden;
+	}
+}
 .no-border {
 	border: none !important;
 }
@@ -249,7 +263,7 @@ section h2 {
 	width: 660px;
 	padding-left: 20px;
 }
-.latest-novel-col-2 > span {
+.latest-novel-col-2 .category {
 	color: rgb(180, 0, 40);
 	font-size: 16px;
 	line-height: 1.2;

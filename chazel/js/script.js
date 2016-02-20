@@ -117,11 +117,11 @@ function loadLatestChapterArticle(targetChapter) {
 		});
 
 		//load article
-		$("#latest-novel-title").html(a[1])
+		$("#latest-novel-title").html(a[2])
 		.unbind().click(function() {
 			readArticle("novel", targetChapter, articleNum.novel[targetChapter - 1]);
 		});
-		$("#latest-novel-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
+		$("#latest-novel-content").html(a[3].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
 	});
 }
 
@@ -223,11 +223,11 @@ function deployArticleSummary(section, subSection, col, articleID) {
 				$("#" + section + "-" + col + "-category").html("極短篇小說");
 				break;
 		}
-		$("#" + section + "-" + col + "-title").html(a[1])
+		$("#" + section + "-" + col + "-title").html(a[2])
 		.unbind().click(function() {
 			readArticle(section, null, articleID);
 		});
-		$("#" + section + "-" + col + "-content").html(a[2].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
+		$("#" + section + "-" + col + "-content").html(a[3].replace(/<br>/g, "").replace(/　/g, "").substring(0, 120) + "...");
 	});
 
 	//disqus comment count
@@ -307,8 +307,8 @@ function readArticle(section, subSection, articleID) {
 		srcHeader = "http://eightdonuts.github.io/chazel/text/" + section + "/";
 	$.get(srcHeader + articleID, function(data) {
 		var a = data.split("\n");
-		$("#reading-area-title").html(a[1]);
-		$("<div>" + a[2] + "</div>").insertBefore("#disqus_thread");
+		$("#reading-area-title").html(a[2]);
+		$("<div>" + a[3] + "</div>").insertBefore("#disqus_thread");
 	});
 
 	//deploy sub-column
