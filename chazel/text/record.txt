@@ -1,0 +1,8 @@
+record
+
+# 4/17
+novel chapter-1
+	[update] 1-11
+novel chapter-2
+	[update] 1-17
+	[add] 18
