@@ -6,3 +6,6 @@ novel chapter-1
 novel chapter-2
 	[update] 1-17
 	[add] 18
+# 5/18
+short-story
+	[add] 6

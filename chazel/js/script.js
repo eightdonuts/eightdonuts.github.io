@@ -4,13 +4,15 @@
  */
 var articleNum = {
 	novel: [21, 18],
-	shortStory: 5,
-	flashFiction: 13
+	shortStory: 6,
+	flashFiction: 13,
+	sevenLibrary: 1
 };
 var pageNum = {
 	novel: [],
 	shortStory: Math.ceil(articleNum.shortStory / 3),
-	flashFiction: Math.ceil(articleNum.flashFiction / 3)
+	flashFiction: Math.ceil(articleNum.flashFiction / 3),
+	sevenLibrary: Math.ceil(articleNum.sevenLibrary / 3)
 };
 
 var novelChapterNum = articleNum.novel.length;
@@ -160,6 +162,8 @@ function loadSummary(section, subSection, targetPage) {
 		case "flash-fiction":
 			articleN = articleNum.flashFiction;
 			break;
+		case "seven-library":
+			articleN = articleNum.sevenLibrary;
 	}
 	pageN = Math.ceil(articleN / 3);
 
@@ -226,6 +230,9 @@ function deployArticleSummary(section, subSection, col, articleID) {
 			case "flash-fiction":
 				$("#" + section + "-" + col + "-category").html("極短篇小說");
 				break;
+			case "seven-library":
+				$("#" + section + "-" + col + "-category").html("七號圖書館");
+				break;
 		}
 		$("#" + section + "-" + col + "-title").html(a[2])
 		.unbind().click(function() {
@@ -266,6 +273,9 @@ function deployPagingBtn(section, subSection) {
 		case "flash-fiction":
 			pageN = pageNum.flashFiction;
 			break;
+		case "seven-library":
+			pageN = pageNum.sevenLibrary;
+			break;
 	}
 
 	for(var page = 1; page <= pageN; page++)
@@ -298,6 +308,8 @@ function readArticle(section, subSection, articleID) {
 		case "flash-fiction":
 			articleN = articleNum.flashFiction;
 			break;
+		case "seven-library":
+			articleN = articleNum.sevenLibrary;
 	}
 
 	//initialize reading area
@@ -420,3 +432,5 @@ deployPagingBtn("short-story", null);
 loadSummary("short-story", null, 1);
 deployPagingBtn("flash-fiction", null);
 loadSummary("flash-fiction", null, 1);
+deployPagingBtn("seven-library", null);
+loadSummary("seven-library", null, 1);
