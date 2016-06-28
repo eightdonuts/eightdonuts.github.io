@@ -3,7 +3,7 @@
  * variables should be changed while adding/deleting articels
  */
 var articleNum = {
-	novel: [21, 18, 2],
+	novel: [21, 18, 3],
 	shortStory: 7,
 	flashFiction: 12,
 	sevenLibrary: 3
