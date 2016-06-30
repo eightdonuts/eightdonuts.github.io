@@ -5,7 +5,7 @@
 var articleNum = {
 	novel: [21, 18, 3],
 	shortStory: 7,
-	flashFiction: 12,
+	flashFiction: 13,
 	sevenLibrary: 3
 };
 var pageNum = {
